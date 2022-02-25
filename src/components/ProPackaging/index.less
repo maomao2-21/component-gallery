@@ -1,0 +1,75 @@
+.container {
+  margin: 100px;
+  border: 2px solid skyblue;
+}
+
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  padding: 0 3px 3px 0;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-origin: content-box;
+}
+.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  transform: rotate(90deg);
+  cursor: col-resize;
+}
+.react-resizable-handle-se {
+  right: 0;
+  bottom: 0;
+  cursor: col-resize;
+}
+.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  transform: rotate(180deg);
+  cursor: col-resize;
+}
+.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  transform: rotate(270deg);
+  cursor: col-resize;
+}
+.react-resizable-handle-w,
+.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: col-resize;
+}
+.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.react-resizable-handle-n,
+.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: col-resize;
+}
+.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.action button.ant-btn.ant-btn-link {
+  padding-right: 0;
+  padding-left: 0;
+}

@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2022-02-17 17:36:42
+ * @LastEditors: YingJie Xing
+ * @LastEditTime: 2022-02-17 17:36:43
+ * @FilePath: /js-test/7.html
+ * Copyright 2022 YingJie Xing, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .shadow {
+                text-align: center;
+                /* 背景颜色线性渐变 */
+                    /* 老式写法 */
+                        /* linear为线性渐变，也可以用下面的那种写法。left top，right top指的是渐变方向，左上到右上 */
+                        /* color-stop函数，第一个表示渐变的位置，0为起点，0.5为中点，1为结束点；第二个表示该点的颜色。所以本次渐变为两边灰色，中间渐白色 */
+                background: -webkit-gradient(linear, left top, right top, color-stop(0, #4d4d4d), color-stop(.4, #4d4d4d), color-stop(.5, white), color-stop(.6, #4d4d4d), color-stop(1, #4d4d4d));
+                    /* 新式写法 */
+                /* background: -webkit-linear-gradient(left top, right top, color-stop(0, #4d4d4d), color-stop(.4, #4d4d4d), color-stop(.5, white), color-stop(.6, #4d4d4d), color-stop(1, #4d4d4d)); */
+
+                /* 设置为text，意思是把文本内容之外的背景给裁剪掉 */
+                -webkit-background-clip: text;
+                /* 设置对象中的文字填充颜色 这里设置为透明 */
+                -webkit-text-fill-color: transparent;
+                /* 每隔2秒调用下面的CSS3动画 infinite属性为循环执行animate */
+                -webkit-animation: animate 1.5s infinite;
+            }
+            /* 兼容写法，要放在@keyframes前面 */
+            @-webkit-keyframes animate {
+                /* 背景从-100px的水平位置，移动到+100px的水平位置。如果要移动Y轴的，设置第二个数值 */
+                from {background-position: -100px;}
+                to {background-position: 100px;}
+            }
+            @keyframes animate {
+                from {background-position: -100px;}
+                to {background-position: 100px;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="shadow">文字向右闪过效果</div>
+    </body>
+</html>
