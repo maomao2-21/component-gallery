@@ -4,7 +4,7 @@
  * @Autor: Mao 
  * @Date: 2022-01-19 16:46:36
  * @LastEditors: Mao 
- * @LastEditTime: 2022-01-21 16:00:44
+ * @LastEditTime: 2022-02-28 14:20:55
  */
 export default [
   {
@@ -37,6 +37,18 @@ export default [
     name: 'three',
     icon: 'smile',
     component: '@/pages/Three/Three.tsx',
+  },
+  // 组件演示
+  {
+    path: '/demo',
+    name: 'demo',
+    icon: 'smile',
+    routes: [
+      {
+        path: '/demo/Player',
+        name: 'Player',
+        component: '@/pages/demo/demo.tsx',
+      },]
   },
   {
     path: '/admin',

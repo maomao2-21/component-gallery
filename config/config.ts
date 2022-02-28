@@ -7,6 +7,17 @@ import proxy from './proxy';
 import routes from './routes';
 
 const { REACT_APP_ENV } = process.env;
+const webpackPlugin = (config: any) => {
+
+  config.module(
+    {
+      test: /\.(pdf|svg|docx|doc)$/,
+      loader: 'file-loader'
+    },
+
+  )
+
+};
 
 export default defineConfig({
   hash: true,
@@ -69,4 +80,9 @@ export default defineConfig({
   mfsu: {},
   webpack5: {},
   exportStatic: {},
+  chainWebpack: webpackPlugin,
+
+
+
+
 });

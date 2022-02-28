@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Mao 
+ * @Date: 2022-01-19 16:46:36
+ * @LastEditors: Mao 
+ * @LastEditTime: 2022-02-28 14:17:01
+ */
 export default {
   'menu.welcome': 'Welcome',
   'menu.more-blocks': 'More Blocks',
@@ -49,4 +57,7 @@ export default {
   'menu.editor.flow': 'Flow Editor',
   'menu.editor.mind': 'Mind Editor',
   'menu.editor.koni': 'Koni Editor',
+  'menu.demo': '非ant-d组件',
+  'menu.demo.Player': '组件演示',
+
 };

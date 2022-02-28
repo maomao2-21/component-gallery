@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-10-15 20:56:43
- * @LastEditTime: 2022-02-25 15:14:56
- * @LastEditors: Mao 
+ * @LastEditTime: 2022-02-28 15:24:07
+ * @LastEditors: Mao
  * @Description: In User Settings Edit
  * @FilePath: \archives-web\src\components\myComponents\myButton.tsx
  */
@@ -17,10 +17,10 @@ import { connect } from 'react-redux';
 import { debounce } from 'lodash';
 import type { ModalFormProps } from '@ant-design/pro-form';
 import { ModalForm } from '@ant-design/pro-form';
-import { BUTTON } from '@/utils/button';
+// import { BUTTON } from '@/utils/button';   //按钮的名称名 以及权限参数
 /***
  * modal 示例
- *        
+ *
        <MyButton
             text="编研"
             fileProps={{ type: 'link' }}
@@ -85,7 +85,7 @@ const MyButton: React.FC<IMyBtnProps> = (props) => {
     popconfirmProps,
     text,
     fileProps,
-    buttonJurisdictionStatus,
+    buttonJurisdictionStatus
   } = props;
 
   const createEl = () => {
@@ -97,9 +97,9 @@ const MyButton: React.FC<IMyBtnProps> = (props) => {
     if (JSON.parse(localStorage.getItem('currentUser') || '{}')?.username !== 'admin') {
       // 权限控制
       // 如果传了btnJurisdiction属性并且 没有权限 返回null
-      // btnJurisdiction={BUTTON.detail.btnJurisdiction} 
+      // btnJurisdiction={BUTTON.detail.btnJurisdiction}
       //  const  BUTTON = { add: { text: '新增', btnJurisdiction: 'add' },
-      //buttonJurisdiction 数组中有没有权限 
+      //buttonJurisdiction 数组中有没有权限
       if (btnJurisdiction !== undefined && !buttonJurisdiction?.includes(btnJurisdiction || '')) {
         return null;
       }
@@ -118,13 +118,13 @@ const MyButton: React.FC<IMyBtnProps> = (props) => {
       Object.assign(fileProps, {
         onClick: debounce(fileProps?.onClick, 1000, {
           leading: true,
-          trailing: false,
-        }),
+          trailing: false
+        })
       });
     }
 
     const deletePopconfirm: PopconfirmProps = {
-      title: '确定删除吗',
+      title: '确定删除吗'
     };
     // 给配置了删除权限的删除按钮添加确认弹出框
     // popconfirmProps={{
@@ -137,7 +137,7 @@ const MyButton: React.FC<IMyBtnProps> = (props) => {
       props.isShowDelPopconfirm !== false
     ) {
       Object.assign(deletePopconfirm, {
-        onConfirm: fileProps?.onClick,
+        onConfirm: fileProps?.onClick
       });
       delete fileProps?.onClick;
     }
@@ -169,7 +169,7 @@ const MyButton: React.FC<IMyBtnProps> = (props) => {
           layout="horizontal"
           modalProps={{
             // destroyOnClose: true,
-            ...props.modalProps,
+            ...props.modalProps
           }}
           trigger={el}
           title="新建"
@@ -198,9 +198,8 @@ const MyButton: React.FC<IMyBtnProps> = (props) => {
 
 export default connect(({ user }: any) => ({
   buttonJurisdiction: user?.buttonJurisdiction,
-  buttonJurisdictionStatus: user?.buttonJurisdictionStatus,
+  buttonJurisdictionStatus: user?.buttonJurisdictionStatus
 }))(MyButton);
-
 
 {/* <MyButton
 text="读取身份证信息"
@@ -209,6 +208,6 @@ formProps={{
   label: '识别信息',
 }}
 fileProps={{
-  
+
 }}
 /> */}

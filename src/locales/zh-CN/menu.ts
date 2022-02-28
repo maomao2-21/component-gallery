@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Mao 
+ * @Date: 2022-01-19 16:46:36
+ * @LastEditors: Mao 
+ * @LastEditTime: 2022-02-28 14:20:38
+ */
 export default {
   'menu.welcome': '欢迎',
   'menu.more-blocks': '更多区块',
@@ -49,4 +57,6 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+  'menu.demo': '非ant-d组件',
+  'menu.demo.Player': '组件演示',
 };
