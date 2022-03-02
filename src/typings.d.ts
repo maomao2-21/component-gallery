@@ -4,7 +4,7 @@
  * @Autor: Mao
  * @Date: 2022-01-19 16:46:36
  * @LastEditors: Mao
- * @LastEditTime: 2022-03-01 14:01:25
+ * @LastEditTime: 2022-03-02 15:03:08
  */
 declare module 'slash2';
 declare module '*.css';
@@ -19,6 +19,8 @@ declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
 declare module '*.doc';
+declare module '*.docx';
+declare module '*.pdf';
 declare module 'omit.js';
 declare module 'numeral';
 declare module '@antv/data-set';

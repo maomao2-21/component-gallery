@@ -1,15 +1,3 @@
-/*
- * @Description:
- * @Version: 2.0
- * @Autor: Mao
- * @Date: 2022-02-28 14:49:58
- * @LastEditors: Mao 
- * @LastEditTime: 2022-03-02 17:08:56
- */
- :local {
-.ant-card-body {
-  margin-bottom: 20px 
-}
 
 .skill {
   margin: -10px 0;
@@ -51,6 +39,9 @@
 }
 .skill li:nth-of-type(5) dt {
   animation: skill infinite 3.5s cubic-bezier(.54,-0.65,.52,1.68);
+}
+.skill div{
+  animation: skill infinite 5s cubic-bezier(.54,-0.65,.52,1.68);
 }
 @keyframes skill {
   0% {transform: rotate(0deg); box-shadow: none;}
@@ -102,5 +93,4 @@
 }
 .skill .sm {
   display: none;
-}
 }

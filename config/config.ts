@@ -4,7 +4,7 @@
  * @Autor: Mao 
  * @Date: 2022-01-19 16:46:36
  * @LastEditors: Mao 
- * @LastEditTime: 2022-03-01 13:33:20
+ * @LastEditTime: 2022-03-02 17:21:40
  */
 // https://umijs.org/config/
 import { defineConfig } from 'umi';
@@ -18,9 +18,18 @@ const { REACT_APP_ENV } = process.env;
 const webpackPlugin = (config: any) => {
   config.module
     .rule('file-loader')
-    .test(/\.(png|jpg|doc|docx|pdf)$/)
+    .test(/\.(doc|docx|pdf)$/)
     .use('file-loader')
     .loader('file-loader');
+
+  // config.module
+  //   .rule('images')
+  //   .use('url-loader')
+  //   .loader('url-loader')
+  //   .tap(options => Object.assign(options, {
+  //     limit: 10240
+  //   }));
+
 }
 export default defineConfig({
   hash: true,
