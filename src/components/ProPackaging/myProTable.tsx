@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-10-31 13:04:23
- * @LastEditTime: 2022-02-25 11:24:03
- * @LastEditors: Mao 
+ * @LastEditTime: 2022-03-01 10:21:37
+ * @LastEditors: Mao
  * @Description: In User Settings Edit
  * @FilePath: \星汉标准版\archives-web\src\components\myComponents\myProTable.tsx
  */
@@ -11,7 +11,7 @@ import type {
   ListToolBarProps,
   ProColumns,
   ProTableProps,
-  TableRowEditable,
+  TableRowEditable
 } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
@@ -102,7 +102,7 @@ const MyProTable = (props: UseTableProps) => {
   const [scrollX, setScrollX] = useState(0);
   // 覆盖默认的 table 元素
   const [components, setComponents] = useState<any>({
-    cell: ResizeableTitle,
+    cell: ResizeableTitle
   });
 
   // 设置表头宽度为接接口返回的宽度
@@ -125,8 +125,8 @@ const MyProTable = (props: UseTableProps) => {
     if (props.isResizable) {
       setComponents({
         header: {
-          cell: ResizeableTitle,
-        },
+          cell: ResizeableTitle
+        }
       });
     }
   }, []);
@@ -162,13 +162,13 @@ const MyProTable = (props: UseTableProps) => {
             if (theadThs[index - count]?.clientWidth) {
               Object.assign(item, {
                 //  100 是防止报错
-                width: theadThs[index - count]?.clientWidth + 0 || 100,
+                width: theadThs[index - count]?.clientWidth + 0 || 100
               });
             }
             // 如果没有dataIndex 给拖拽属性设置false 不添加拖拽功能
             if (!item.dataIndex) {
               Object.assign(item, {
-                isResizable: false,
+                isResizable: false
               });
             }
             return Number(item.width) + num;
@@ -179,7 +179,7 @@ const MyProTable = (props: UseTableProps) => {
         if (props.fileProps) {
           setDdefaultColumns(columnsCopy as IProColumns);
           Object.assign(props.fileProps, {
-            columns: columnsCopy,
+            columns: columnsCopy
           });
         }
       }
@@ -257,22 +257,22 @@ const MyProTable = (props: UseTableProps) => {
         ...params,
         [props.paginationfield?.pageSize || 'pageSize']: pageSize,
         [props.paginationfield?.page || 'page']: current,
-        ...props.searchOtherParams,
+        ...props.searchOtherParams
       });
-      const data = props.formatData
-        ? props.formatData(res.data.records || res.data)
-        : res.data.records || res.data;
+      const data = props.formatData ?
+        props.formatData(res.data.records || res.data) :
+        res.data.records || res.data;
 
       return {
         data,
         success: res.code === 200,
-        total: res.data.records ? res.data.total : res.data.length,
+        total: res.data.records ? res.data.total : res.data.length
       };
     }
     return {
       data: [],
       success: false,
-      total: 0,
+      total: 0
     };
   };
 
@@ -282,14 +282,14 @@ const MyProTable = (props: UseTableProps) => {
     size: 'small',
     pagination: {
       pageSize: 10,
-      ...props.pagination,
+      ...props.pagination
     },
     toolbar: {
-      ...props.toolbar,
+      ...props.toolbar
     },
 
     request: async (params = {}) => queryData(params),
-    ...props.fileProps,
+    ...props.fileProps
   };
 
   // 拖动传true 会添加自定义表头和拖拽方法
@@ -306,7 +306,7 @@ const MyProTable = (props: UseTableProps) => {
             const nextColumns = [...columns];
             nextColumns[index] = {
               ...nextColumns[index],
-              width: size.width,
+              width: size.width
             };
             // console.log(nextColumns)
             const total = nextColumns.reduce((num, item) => {
@@ -317,16 +317,16 @@ const MyProTable = (props: UseTableProps) => {
               setScrollX(total);
             }
             setDdefaultColumns(nextColumns);
-          },
+          }
         };
-      },
+      }
     }));
     Object.assign(tableAllProps, {
-      columns,
+      columns
     });
-    tableAllProps.scroll = props.fileProps?.scroll
-      ? { ...props.fileProps?.scroll, x: scrollX }
-      : { x: scrollX };
+    tableAllProps.scroll = props.fileProps?.scroll ?
+      { ...props.fileProps?.scroll, x: scrollX } :
+      { x: scrollX };
 
     tableAllProps.components = components;
     tableAllProps.tableLayout = 'fixed';
@@ -337,9 +337,9 @@ const MyProTable = (props: UseTableProps) => {
 
     editable: {
       type: 'multiple',
-      ...props.editable,
+      ...props.editable
     },
-    ...props.editFileProps,
+    ...props.editFileProps
   };
 
   return (

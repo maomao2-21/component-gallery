@@ -1,0 +1,29 @@
+@keyframes line-spin-fade-loader {
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .pdf-content {
+    overflow: initial !important;
+  }
+  .print-overflow {
+    overflow: initial !important;
+  }
+  #root {
+    overflow: initial !important;
+  }
+  .colour {
+    -webkit-print-color-adjust: exact;
+  }
+  .ant-tooltip-inner {
+    display: none !important;
+  }
+}

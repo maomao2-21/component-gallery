@@ -12,7 +12,7 @@ import type { FormValueType } from './components/UpdateForm';
 import UpdateForm from './components/UpdateForm';
 import { rule, addRule, updateRule, removeRule } from '@/services/ant-design-pro/api';
 import MyProFormText from '@/components/ProPackaging/myProFormText';
-import MyProTable from '@/components/ProPackaging/MyProTable';
+import { MyProTable } from '@/components/ProPackaging';
 
 /**
  * @en-US Add node
@@ -46,7 +46,7 @@ const handleUpdate = async (fields: FormValueType) => {
     await updateRule({
       name: fields.name,
       desc: fields.desc,
-      key: fields.key,
+      key: fields.key
     });
     hide();
 
@@ -70,7 +70,7 @@ const handleRemove = async (selectedRows: API.RuleListItem[]) => {
   if (!selectedRows) return true;
   try {
     await removeRule({
-      key: selectedRows.map((row) => row.key),
+      key: selectedRows.map((row) => row.key)
     });
     hide();
     message.success('Deleted successfully and will refresh soon');
@@ -127,12 +127,12 @@ const TableList: React.FC = () => {
             {dom}
           </a>
         );
-      },
+      }
     },
     {
       title: <FormattedMessage id="pages.searchTable.titleDesc" defaultMessage="Description" />,
       dataIndex: 'desc',
-      valueType: 'textarea',
+      valueType: 'textarea'
     },
     {
       title: (
@@ -144,11 +144,10 @@ const TableList: React.FC = () => {
       dataIndex: 'callNo',
       // sorter: true,   //需要配置相应接口
       hideInForm: true,
-      renderText: (val: string) =>
-        `${val}${intl.formatMessage({
-          id: 'pages.searchTable.tenThousand',
-          defaultMessage: ' 万 ',
-        })}`,
+      renderText: (val: string) => `${val}${intl.formatMessage({
+        id: 'pages.searchTable.tenThousand',
+        defaultMessage: ' 万 '
+      })}`
     },
     {
       title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
@@ -162,19 +161,19 @@ const TableList: React.FC = () => {
               defaultMessage="Shut down"
             />
           ),
-          status: 'Default',
+          status: 'Default'
         },
         1: {
           text: (
             <FormattedMessage id="pages.searchTable.nameStatus.running" defaultMessage="Running" />
           ),
-          status: 'Processing',
+          status: 'Processing'
         },
         2: {
           text: (
             <FormattedMessage id="pages.searchTable.nameStatus.online" defaultMessage="Online" />
           ),
-          status: 'Success',
+          status: 'Success'
         },
         3: {
           text: (
@@ -183,9 +182,9 @@ const TableList: React.FC = () => {
               defaultMessage="Abnormal"
             />
           ),
-          status: 'Error',
-        },
-      },
+          status: 'Error'
+        }
+      }
     },
     {
       title: (
@@ -208,13 +207,13 @@ const TableList: React.FC = () => {
               {...rest}
               placeholder={intl.formatMessage({
                 id: 'pages.searchTable.exception',
-                defaultMessage: 'Please enter the reason for the exception!',
+                defaultMessage: 'Please enter the reason for the exception!'
               })}
             />
           );
         }
         return defaultRender(item);
-      },
+      }
     },
     {
       title: <FormattedMessage id="pages.searchTable.titleOption" defaultMessage="Operating" />,
@@ -235,9 +234,9 @@ const TableList: React.FC = () => {
             id="pages.searchTable.subscribeAlert"
             defaultMessage="Subscribe to alerts"
           />
-        </a>,
-      ],
-    },
+        </a>
+      ]
+    }
   ];
 
   return (
@@ -247,7 +246,7 @@ const TableList: React.FC = () => {
         formProps={{
           name: 'name',
           label: 'label名',
-          rules: [{ required: true }],
+          rules: [{ required: true }]
         }}
         fieldProps={{ allowClear: true, placeholder: '请输入', style: { width: '180px' } }}
       />
@@ -263,7 +262,7 @@ const TableList: React.FC = () => {
               }}
             >
               <PlusOutlined /> <FormattedMessage id="pages.searchTable.new" defaultMessage="New" />
-            </Button>,
+            </Button>
           ],
           rowKey: 'id',
           search: false,
@@ -271,7 +270,7 @@ const TableList: React.FC = () => {
           columns: columns,
           rowSelection: {
             onChange: (_, selectedRows) => {
-              setSelectedRows(selectedRows)
+              setSelectedRows(selectedRows);
             }
           }
         }
@@ -282,12 +281,12 @@ const TableList: React.FC = () => {
       <ProTable<API.RuleListItem, API.PageParams>
         headerTitle={intl.formatMessage({
           id: 'pages.searchTable.title',
-          defaultMessage: 'Enquiry form',
+          defaultMessage: 'Enquiry form'
         })}
         actionRef={actionRef}
         rowKey="key"
         search={{
-          labelWidth: 120,
+          labelWidth: 120
         }}
         toolBarRender={() => [
           <Button
@@ -298,14 +297,14 @@ const TableList: React.FC = () => {
             }}
           >
             <PlusOutlined /> <FormattedMessage id="pages.searchTable.new" defaultMessage="New" />
-          </Button>,
+          </Button>
         ]}
         request={rule}
         columns={columns}
         rowSelection={{
           onChange: (_, selectedRows) => {
             setSelectedRows(selectedRows);
-          },
+          }
         }}
       />
       {selectedRowsState?.length > 0 && (
@@ -350,7 +349,7 @@ const TableList: React.FC = () => {
       <ModalForm
         title={intl.formatMessage({
           id: 'pages.searchTable.createForm.newRule',
-          defaultMessage: 'New rule',
+          defaultMessage: 'New rule'
         })}
         width="400px"
         visible={createModalVisible}
@@ -374,8 +373,8 @@ const TableList: React.FC = () => {
                   id="pages.searchTable.ruleName"
                   defaultMessage="Rule name is required"
                 />
-              ),
-            },
+              )
+            }
           ]}
           width="md"
           name="name"
@@ -417,10 +416,10 @@ const TableList: React.FC = () => {
             column={2}
             title={currentRow?.name}
             request={async () => ({
-              data: currentRow || {},
+              data: currentRow || {}
             })}
             params={{
-              id: currentRow?.name,
+              id: currentRow?.name
             }}
             columns={columns as ProDescriptionsItemProps<API.RuleListItem>[]}
           />

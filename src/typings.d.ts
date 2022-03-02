@@ -1,10 +1,10 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 2.0
- * @Autor: Mao 
+ * @Autor: Mao
  * @Date: 2022-01-19 16:46:36
- * @LastEditors: Mao 
- * @LastEditTime: 2022-01-21 15:13:33
+ * @LastEditors: Mao
+ * @LastEditTime: 2022-03-01 14:01:25
  */
 declare module 'slash2';
 declare module '*.css';
@@ -18,6 +18,7 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
+declare module '*.doc';
 declare module 'omit.js';
 declare module 'numeral';
 declare module '@antv/data-set';
@@ -26,7 +27,6 @@ declare module 'react-fittext';
 declare module 'bizcharts-plugin-slider';
 
 declare module 'three';
-
 
 // preview.pro.ant.design only do not use in your production ;
 // preview.pro.ant.design Dedicated environment variable, please do not use it in your project.

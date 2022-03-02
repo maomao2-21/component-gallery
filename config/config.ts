@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: Mao 
+ * @Date: 2022-01-19 16:46:36
+ * @LastEditors: Mao 
+ * @LastEditTime: 2022-03-01 13:33:20
+ */
 // https://umijs.org/config/
 import { defineConfig } from 'umi';
 import { join } from 'path';
@@ -8,17 +16,12 @@ import routes from './routes';
 
 const { REACT_APP_ENV } = process.env;
 const webpackPlugin = (config: any) => {
-
-  config.module(
-    {
-      test: /\.(pdf|svg|docx|doc)$/,
-      loader: 'file-loader'
-    },
-
-  )
-
-};
-
+  config.module
+    .rule('file-loader')
+    .test(/\.(png|jpg|doc|docx|pdf)$/)
+    .use('file-loader')
+    .loader('file-loader');
+}
 export default defineConfig({
   hash: true,
   antd: {},
@@ -77,7 +80,7 @@ export default defineConfig({
     },
   ],
   nodeModulesTransform: { type: 'none' },
-  mfsu: {},
+  // mfsu: {},
   webpack5: {},
   exportStatic: {},
   chainWebpack: webpackPlugin,
